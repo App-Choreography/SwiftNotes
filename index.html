@@ -2,91 +2,28 @@
 <html lang="en">
 
 <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Swift Notes</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
         integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="icon" href="images.png">
 </head>
 
 <body>
     <button class="add" id="add">
         <i class="fas fa-plus"></i> Add Note
     </button>
-
-    <script>
-        const addBtn = document.getElementById('add');
-
-        const notes = JSON.parse(localStorage.getItem('notes'));
-
-        // if (notes) {
-        //     notes.forEach(note => addNewNote(note));
-        // }
-
-        addBtn.addEventListener('click', () => addNewNote());
-
-        function addNewNote(text = '') {
-            const note = document.createElement('div');
-            note.classList.add('note');
-
-            note.innerHTML = `
-                 <div class="tools">
-                     <button class="edit"><i class="fas fa-edit"></i></button>
-                     <button class="delete"><i class="fas fa-trash-alt"></i></button>
-                 </div>
-             
-                 <div class="main ${text ? "" : "hidden"}"></div>
-                 <textarea class="${text ? "hidden" : ""}"</textarea>
-                 `
-
-            const editBtn = note.querySelector('.edit');
-            const deleteBtn = note.querySelector('.delete');
-            const main = note.querySelector('.main');
-            const textArea = note.querySelector('textarea');
-
-            textArea.value = text;
-            main.innerHTML = marked(text);
-
-            deleteBtn.addEventListener('click', () => {
-                note.remove();
-
-                updateLS();
-            })
-
-            editBtn.addEventListener('click', () => {
-                main.classList.toggle('hidden');
-                textArea.classList.toggle('hidden');
-            })
-
-            textArea.addEventListener('input', (e) => {
-                const { value } = e.target;
-
-                main.innerHTML = marked(value);
-
-                updateLS();
-            })
-
-            document.body.appendChild(note);
-        }
-
-        function updateLS() {
-            const notesText = document.querySelectorAll('textarea');
-
-            const notes = [];
-
-            notesText.forEach(note => notes.push(note.value));
-
-            localStorage.setItem('notes', JSON.stringify(notes));
-        }
-
-    </script>
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/2.1.3/marked.min.js"
         integrity="sha512-AD+GG1nJKO4Je/Q8QsY1gM9/7o1QjpGe9W2Lrg1oGtEID/RX8bMKKZGgw/KOODkPXL6j74c6eJWAhE/3F2kKjA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
