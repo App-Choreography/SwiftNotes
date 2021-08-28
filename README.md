@@ -13,9 +13,11 @@ My New And Upgraded App To Take Notes! Star And Fork!
 - [x] A Markdown API, so you can easily use Markdown in writing your notes!
 - [x] Delete and Edit Notes.
 
-### This is still in contruction:
+## Bonus: 
 
-- [ ] I still need to configure local storage!
+You can save your notes to local storage, by @JayantGoel!
+
+
 
 ## I made this from a tutorial from @BradTraversy 50ProjectsIn50Days!
 ## Contributors ✨
