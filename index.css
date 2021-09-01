@@ -24,7 +24,11 @@ body {
     padding: 0.5rem 1rem;
     cursor: pointer;
 }
-
+.add:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px rgb(28, 199, 94);
+    transform: translateY(4px);
+}
 .note {
     background-color: #fff;
     box-shadow: 0 0 10pz 4px rgba(0,0,0,0.1);
